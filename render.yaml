@@ -3,6 +3,5 @@ services:
     name: edu_payment_portal
     env: python
     plan: free
-    pythonVersion: 3.12
     buildCommand: pip install -r requirements.txt
-    startCommand: python app1.py
+    startCommand: python app.py
