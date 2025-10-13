@@ -3,5 +3,5 @@ services:
     name: edu-payment-portal
     env: python
     pythonVersion: "3.12.12"
-    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    buildCommand: "pip install -r requirements.txt"
     startCommand: "python app1.py"
