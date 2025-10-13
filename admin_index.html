@@ -1,0 +1,2 @@
+{% extends 'layout.html' %}
+{% block content %}<h1>Админка</h1><ul><li><a href='{{ url_for('admin_users') }}'>Пользователи</a></li><li><a href='{{ url_for('admin_payments') }}'>Платежи</a></li><li><a href='{{ url_for('admin_files') }}'>Файлы</a></li><li><a href='{{ url_for('admin_reports') }}'>Отчёты</a></li></ul>{% endblock %}

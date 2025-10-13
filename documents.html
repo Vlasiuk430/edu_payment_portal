@@ -1,0 +1,2 @@
+{% extends 'layout.html' %}
+{% block content %}<h1>Документы</h1>{% if docs %}<ul>{% for d in docs %}<li><a href='{{ url_for('uploaded_file', filename=d['filename']) }}'>{{ d['filename'] }}</a></li>{% endfor %}</ul>{% else %}<p>Нет документов</p>{% endif %}{% endblock %}

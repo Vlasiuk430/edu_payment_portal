@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Сводный отчёт</h1>
+<p>Всего платёжeй: {{ count }}</p>
+<p>Сумма всех платежей: {{ total }}</p>
+{% if per_program %}<h3>По программам</h3><table class='table'><tr><th>Программа</th><th>Кол-во</th><th>Сумма</th></tr>{% for p in per_program %}<tr><td>{{ p['program'] }}</td><td>{{ p['c'] }}</td><td>{{ p['s'] }}</td></tr>{% endfor %}</table>{% endif %}
+{% endblock %}

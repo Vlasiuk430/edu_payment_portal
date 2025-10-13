@@ -1,0 +1,2 @@
+{% extends 'layout.html' %}
+{% block content %}<h1>Файлы</h1>{% if docs %}<ul>{% for d in docs %}<li>{{ d['filename'] }} — {{ d['username'] or '—' }}</li>{% endfor %}</ul>{% else %}<p>Нет файлов</p>{% endif %}{% endblock %}

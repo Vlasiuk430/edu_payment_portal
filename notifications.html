@@ -1,0 +1,5 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Уведомления</h1>
+{% if notes %}<ul class='list-group'>{% for n in notes %}<li class='list-group-item'>{% if not n['is_read'] %}<strong>(Новое)</strong>{% endif %} {{ n['title'] }} - {{ n['message'] }} <form method='post' action='{{ url_for('notification_read', nid=n['id']) }}' style='display:inline'><button class='btn btn-sm btn-link'>Пометить как прочитанное</button></form></li>{% endfor %}</ul>{% else %}<p>Нет уведомлений</p>{% endif %}
+{% endblock %}
