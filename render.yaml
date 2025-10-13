@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: edu-payment-portal
+    env: python
+    pythonVersion: "3.12.12"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app1.py"
