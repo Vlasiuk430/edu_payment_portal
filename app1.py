@@ -13,11 +13,10 @@ def get_db():
     conn = psycopg2.connect(database_url, cursor_factory=RealDictCursor)
     return conn
 
-# Инициализация базы (если нужно создать таблицы)
+# Инициализация базы (создание таблицы)
 def init_db():
     conn = get_db()
     cur = conn.cursor()
-    # Пример простой таблицы
     cur.execute("""
         CREATE TABLE IF NOT EXISTS students (
             id SERIAL PRIMARY KEY,
@@ -29,7 +28,7 @@ def init_db():
     cur.close()
     conn.close()
 
-# Пример простого API
+# Простой API
 @app.route("/")
 def index():
     return "Edu Payment Portal is running!"
@@ -40,14 +39,16 @@ def students():
     cur = conn.cursor()
     if request.method == "POST":
         data = request.json
-        cur.execute("INSERT INTO students (name, email) VALUES (%s, %s) RETURNING id",
-                    (data["name"], data["email"]))
+        cur.execute(
+            "INSERT INTO students (name, email) VALUES (%s, %s) RETURNING id",
+            (data["name"], data["email"])
+        )
         student_id = cur.fetchone()["id"]
         conn.commit()
         cur.close()
         conn.close()
         return jsonify({"id": student_id, "name": data["name"], "email": data["email"]}), 201
-    else:  # GET
+    else:
         cur.execute("SELECT * FROM students")
         students = cur.fetchall()
         cur.close()
@@ -55,7 +56,7 @@ def students():
         return jsonify(students)
 
 if __name__ == "__main__":
-    # Инициализация базы при старте (по желанию)
+    # Инициализация базы при старте
     init_db()
     
     # Используем порт Render
