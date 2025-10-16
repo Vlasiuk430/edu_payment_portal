@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: edu_payment_portal
-    env: python
-    plan: free
-    pythonVersion: 3.13
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
