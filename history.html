@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>История изменений тарифа "{{ tariff['name'] }}"</h1>
+<table class="table table-sm">
+  <thead><tr><th>Когда</th><th>Название</th><th>Описание</th><th>Цена</th></tr></thead>
+  <tbody>
+  {% for v in versions %}
+    <tr><td>{{ v['changed_at'] }}</td><td>{{ v['name'] }}</td><td>{{ v['description'] }}</td><td>{{ v['price'] }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
