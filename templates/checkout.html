@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>Оплата обучения</h1>
+<p>Сумма к оплате: <strong>{{ '%.0f'|format(amount) }} ₽</strong> (Stripe тестовый режим)</p>
+<button id="payBtn" class="btn btn-vitte">Перейти к оплате</button>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const stripe = Stripe("{{ public_key }}");
+  document.getElementById("payBtn").addEventListener("click", async () => {
+    const { error } = await stripe.redirectToCheckout({ sessionId: "{{ checkout_session_id }}" });
+    if (error) { alert(error.message); }
+  });
+</script>
+{% endblock %}
