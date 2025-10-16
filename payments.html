@@ -1,2 +1,0 @@
-{% extends 'layout.html' %}
-{% block content %}<h1>Мои платежи</h1>{% if payments %}<table class='table'><tr><th>ID</th><th>ФИО</th><th>Сумма</th></tr>{% for p in payments %}<tr><td>{{ p['id'] }}</td><td>{{ p['fio'] }}</td><td>{{ p['amount'] }}</td></tr>{% endfor %}</table>{% else %}<p>Платежей нет</p>{% endif %}{% endblock %}
