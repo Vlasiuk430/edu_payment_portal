@@ -1,0 +1,10 @@
+:root{--vitte-primary:#E13419;--vitte-dark:#000;--vitte-light:#fff;--vitte-gray:#f5f6f8;}
+body{background:#fff}
+.navbar-vitte{background:var(--vitte-dark)}
+.navbar-vitte .navbar-brand,.navbar-vitte .nav-link{color:var(--vitte-light)!important}
+.hero{background:linear-gradient(135deg,var(--vitte-primary) 0%,#ff6a55 100%);color:#fff;border-radius:1rem}
+.btn-vitte{background:var(--vitte-primary);color:#fff;border:none}
+.btn-vitte:hover{filter:brightness(.92);color:#fff}
+.badge-vitte{background:var(--vitte-primary)}
+.card-feature{border:0;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.price{font-size:1.75rem;font-weight:700}
