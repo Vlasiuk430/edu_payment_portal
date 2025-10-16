@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>Мои документы</h1>
+<table class="table table-striped">
+  <thead><tr><th>ID</th><th>Имя файла</th><th>Тип</th><th>Дата</th><th>Скачать</th></tr></thead>
+  <tbody>
+    {% for d in docs %}
+    <tr>
+      <td>{{ d['id'] }}</td><td>{{ d['filename'] }}</td><td>{{ d['doc_type'] }}</td><td>{{ d['uploaded_at'] }}</td>
+      <td><a class="btn btn-sm btn-outline-primary" href="{{ url_for('uploaded_file', filename=d['filename']) }}">Скачать</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3>Загрузить новый документ</h3>
+<form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data" class="col-md-6">
+  <div class="mb-3"><input name="file" type="file" class="form-control" required></div>
+  <button class="btn btn-success">Загрузить</button>
+</form>
+{% endblock %}
