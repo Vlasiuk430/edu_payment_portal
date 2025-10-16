@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}{% block content %}
+<div class="alert alert-success">
+  <h4>Платёж сохранён</h4>
+  <p><strong>{{ fio }}</strong>, сумма: <strong>{{ amount }} ₽</strong>.</p>
+</div>
+<a class="btn btn-outline-primary" href="{{ url_for('dashboard') }}">В личный кабинет</a>
+{% endblock %}

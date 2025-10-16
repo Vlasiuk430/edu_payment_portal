@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Оплата обучения онлайн</h1>
+    <p class="col-md-8 fs-5">Удобная и безопасная оплата образовательных программ. Выберите тариф и оплатите за минуту.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('pricing') }}">Посмотреть тарифы</a>
+  </div>
+</div>
+
+<h2 class="mb-3">Тарифы</h2>
+<div class="row">
+  {% for t in tariffs %}
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ t['name'] }}</h5>
+        <p class="card-text text-muted">{{ t['description'] or '' }}</p>
+        <p class="h4">{{ '%.2f'|format(t['price']) }} ₽</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
