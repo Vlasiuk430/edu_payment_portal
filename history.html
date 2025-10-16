@@ -1,5 +1,0 @@
-{% extends 'layout.html' %}
-{% block content %}
-<h1>История тарифа: {{ tariff['name'] }}</h1>
-{% if versions %}<table class='table'><tr><th>Дата</th><th>Название</th><th>Цена</th></tr>{% for v in versions %}<tr><td>{{ v['changed_at'] }}</td><td>{{ v['name'] }}</td><td>{{ v['price'] }}</td></tr>{% endfor %}</table>{% else %}<p>История отсутствует</p>{% endif %}
-{% endblock %}
