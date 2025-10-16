@@ -1,5 +1,0 @@
-{% extends 'layout.html' %}
-{% block content %}
-<h1>Создать пользователя</h1>
-<form method='post'><input name='username' class='form-control mb-2' placeholder='Логин'><input name='email' class='form-control mb-2' placeholder='Email'><input name='password' type='password' class='form-control mb-2' placeholder='Пароль'><select name='role_id' class='form-select mb-2'>{% for r in roles %}<option value='{{ r['id'] }}'>{{ r['name'] }}</option>{% endfor %}</select><button class='btn btn-primary'>Создать</button></form>
-{% endblock %}
