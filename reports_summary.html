@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>Сводка</h1>
+<p>Всего платежей: <strong>{{ count }}</strong></p>
+<p>Сумма платежей: <strong>{{ total }}</strong> ₽</p>
+<table class="table table-sm">
+  <thead><tr><th>Программа</th><th>Кол-во</th><th>Сумма</th></tr></thead>
+  <tbody>
+    {% for r in per_program %}
+      <tr><td>{{ r['program'] or '-' }}</td><td>{{ r['c'] }}</td><td>{{ r['s'] or 0 }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

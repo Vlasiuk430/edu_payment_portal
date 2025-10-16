@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>Платежи</h1>
+<table class="table table-striped">
+  <thead><tr><th>ID</th><th>ФИО</th><th>Программа</th><th>Сумма</th><th>Пользователь</th><th>Дата</th></tr></thead>
+  <tbody>
+    {% for p in payments %}
+    <tr>
+      <td>{{ p['id'] }}</td><td>{{ p['fio'] }}</td><td>{{ p['program'] }}</td><td>{{ p['amount'] }}</td><td>{{ p['username'] }}</td><td>{{ p['created_at'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a class="btn btn-outline-secondary" href="{{ url_for('payments_export_csv') }}">Экспорт CSV</a>
+<a class="btn btn-outline-primary" href="{{ url_for('payments_import_csv') }}">Импорт CSV</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>Файлы</h1>
+<table class="table table-striped">
+  <thead><tr><th>ID</th><th>Имя</th><th>Тип</th><th>Пользователь</th><th>Дата</th></tr></thead>
+  <tbody>
+    {% for d in docs %}
+    <tr><td>{{ d['id'] }}</td><td>{{ d['filename'] }}</td><td>{{ d['doc_type'] }}</td><td>{{ d['username'] }}</td><td>{{ d['uploaded_at'] }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

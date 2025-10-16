@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>Изменить пользователя #{{ u['id'] }}</h1>
+<form method="post" class="col-md-6">
+  <div class="mb-3"><label class="form-label">Email</label><input name="email" type="email" class="form-control" value="{{ u['email'] }}" required></div>
+  <div class="mb-3">
+    <label class="form-label">Роль</label>
+    <select name="role_id" class="form-select">
+      {% for r in roles %}<option value="{{ r['id'] }}" {% if r['id']==u['role_id'] %}selected{% endif %}>{{ r['name'] }}</option>{% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-primary">Сохранить</button>
+</form>
+{% endblock %}

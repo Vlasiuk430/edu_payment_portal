@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}{% block content %}
+<h1>Пользователи</h1>
+<a class="btn btn-primary mb-3" href="{{ url_for('admin_user_create') }}">Создать</a>
+<table class="table table-striped">
+  <thead><tr><th>ID</th><th>Логин</th><th>Email</th><th>Роль</th><th></th></tr></thead>
+  <tbody>
+    {% for u in users %}
+    <tr>
+      <td>{{ u['id'] }}</td>
+      <td>{{ u['username'] }}</td>
+      <td>{{ u['email'] }}</td>
+      <td>{{ u['role_name'] }}</td>
+      <td>
+        <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('admin_user_edit', uid=u['id']) }}">Изменить</a>
+        <form method="post" action="{{ url_for('admin_user_delete', uid=u['id']) }}" style="display:inline" onsubmit="return confirm('Удалить пользователя?')">
+          <button class="btn btn-sm btn-outline-danger">Удалить</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
