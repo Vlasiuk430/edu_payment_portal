@@ -1,5 +1,0 @@
-{% extends 'layout.html' %}
-{% block content %}
-<h1>Редактировать пользователя</h1>
-<form method='post'><input name='email' value='{{ u['email'] }}' class='form-control mb-2' placeholder='Email'><select name='role_id' class='form-select mb-2'>{% for r in roles %}<option value='{{ r['id'] }}' {% if r['id'] == u['role_id'] %}selected{% endif %}>{{ r['name'] }}</option>{% endfor %}</select><button class='btn btn-primary'>Сохранить</button></form>
-{% endblock %}
