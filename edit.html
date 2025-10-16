@@ -1,5 +1,0 @@
-{% extends 'layout.html' %}
-{% block content %}
-<h1>Редактировать тариф</h1>
-<form method='post'><input name='name' value='{{ t['name'] }}' class='form-control mb-2' placeholder='Название'><textarea name='description' class='form-control mb-2' placeholder='Описание'>{{ t['description'] }}</textarea><input name='price' value='{{ t['price'] }}' class='form-control mb-2' placeholder='Цена' type='number' step='0.01'><button class='btn btn-primary'>Сохранить</button></form>
-{% endblock %}
