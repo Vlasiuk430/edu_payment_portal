@@ -1,2 +1,0 @@
-{% extends 'layout.html' %}
-{% block content %}<h1>Пользователи</h1>{% if users %}<table class='table'><tr><th>ID</th><th>Логин</th><th>Роль</th></tr>{% for u in users %}<tr><td>{{ u['id'] }}</td><td>{{ u['username'] }}</td><td>{{ u['role_name'] }}</td></tr>{% endfor %}</table>{% else %}<p>Нет пользователей</p>{% endif %}{% endblock %}
