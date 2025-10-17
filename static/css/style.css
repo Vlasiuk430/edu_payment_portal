@@ -1,0 +1,11 @@
+
+:root{--vitte-primary:#E13419;--vitte-dark:#0f1114}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+.navbar-vitte{background:var(--vitte-dark)}
+.navbar-vitte .navbar-brand,.navbar-vitte .nav-link{color:#fff!important}
+.hero{background:linear-gradient(135deg,var(--vitte-primary),#ff6a55);color:#fff;border-radius:1rem}
+.btn-vitte{background:var(--vitte-primary);color:#fff;border:none}
+.btn-vitte:hover{filter:brightness(.95);color:#fff}
+.card-feature{border:0;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.price{font-size:1.6rem;font-weight:700}
+footer{border-top:1px solid #eee}
