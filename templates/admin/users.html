@@ -1,0 +1,8 @@
+
+{% extends 'layout.html' %}{% block content %}
+<h1>Пользователи</h1>
+<table class='table'>
+  <thead><tr><th>ID</th><th>Логин</th><th>Email</th><th>Роль</th></tr></thead>
+  <tbody>{% for u in users %}<tr><td>{{ u['id'] }}</td><td>{{ u['username'] }}</td><td>{{ u['email'] }}</td><td>{{ u['role_name'] or '—' }}</td></tr>{% endfor %}</tbody>
+</table>
+{% endblock %}

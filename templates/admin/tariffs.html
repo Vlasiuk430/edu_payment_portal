@@ -1,0 +1,23 @@
+
+{% extends 'layout.html' %}{% block content %}
+<div class='d-flex justify-content-between align-items-center mb-3'>
+  <h1>Тарифы</h1><a class='btn btn-vitte' href='{{ url_for('admin_tariff_create') }}'>Добавить</a>
+</div>
+<table class='table'>
+  <thead><tr><th>#</th><th>Название</th><th>Описание</th><th>Цена</th><th></th></tr></thead>
+  <tbody>
+  {% for t in tariffs %}
+    <tr>
+      <td>{{ t['id'] }}</td><td>{{ t['name'] }}</td><td>{{ t['description'] }}</td>
+      <td>{{ '%.0f'|format(t['price']) }} ₽</td>
+      <td class='text-end'>
+        <a class='btn btn-sm btn-secondary' href='{{ url_for('admin_tariff_edit', tid=t['id']) }}'>Изменить</a>
+        <form method='post' action='{{ url_for('admin_tariff_delete', tid=t['id']) }}' class='d-inline' onsubmit='return confirm("Удалить?")'>
+          <button class='btn btn-sm btn-outline-danger'>Удалить</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

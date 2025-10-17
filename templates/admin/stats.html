@@ -1,0 +1,9 @@
+
+{% extends 'layout.html' %}{% block content %}
+<h1>Статистика</h1>
+<div class='row g-3'>
+  <div class='col-md-4'><div class='card'><div class='card-body'><div class='text-muted'>Всего платежей</div><div class='h3'>{{ stats.total_count }}</div></div></div></div>
+  <div class='col-md-4'><div class='card'><div class='card-body'><div class='text-muted'>Сумма оплат</div><div class='h3'>{{ '%.0f'|format(stats.total_sum or 0) }} ₽</div></div></div></div>
+  <div class='col-md-4'><div class='card'><div class='card-body'><div class='text-muted'>Оплачено</div><div class='h3'>{{ stats.paid_count }}</div></div></div></div>
+</div>
+{% endblock %}

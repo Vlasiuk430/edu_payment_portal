@@ -1,0 +1,18 @@
+
+{% extends 'layout.html' %}{% block content %}
+<h1>Платежи</h1>
+<table class='table table-striped'>
+  <thead><tr><th>ID</th><th>Студент</th><th>Программа</th><th>Сумма</th><th>Статус</th><th>Дата</th><th>Квитанция</th></tr></thead>
+  <tbody>
+  {% for p in payments %}
+    <tr>
+      <td>{{ p['id'] }}</td><td>{{ p['fio'] or '—' }}</td><td>{{ p['program'] }}</td>
+      <td>{{ '%.0f'|format(p['amount'] or 0) }} ₽</td>
+      <td><span class='badge {% if p['status']=='paid' %}bg-success{% else %}bg-secondary{% endif %}'>{{ p['status'] }}</span></td>
+      <td>{{ p['created_at'] }}</td>
+      <td>{% if p['receipt_pdf'] %}<a class='btn btn-sm btn-outline-primary' href='{{ url_for('download_receipt', payment_id=p['id']) }}'>PDF</a>{% else %}—{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

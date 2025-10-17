@@ -1,0 +1,7 @@
+
+{% extends 'layout.html' %}{% block content %}
+<h1>Экспорт документов</h1>
+<p>Отчёты доступны только администратору.</p>
+<a class="btn btn-vitte me-2" href="{{ url_for('export_xlsx') }}">Выгрузить платежи в Excel (.xlsx)</a>
+<a class="btn btn-outline-secondary" href="{{ url_for('export_docx') }}">Сформировать отчёт Word (.docx)</a>
+{% endblock %}

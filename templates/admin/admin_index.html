@@ -1,0 +1,11 @@
+
+{% extends 'layout.html' %}{% block content %}
+<h1>Админ-панель</h1>
+<div class='list-group'>
+  <a class='list-group-item' href='{{ url_for('admin_stats') }}'>Статистика</a>
+  <a class='list-group-item' href='{{ url_for('admin_tariffs') }}'>Тарифы</a>
+  <a class='list-group-item' href='{{ url_for('admin_payments') }}'>Платежи</a>
+  <a class='list-group-item' href='{{ url_for('admin_users') }}'>Пользователи</a>
+  <a class='list-group-item' href='{{ url_for('admin_exports') }}'>Экспорт документов</a>
+</div>
+{% endblock %}

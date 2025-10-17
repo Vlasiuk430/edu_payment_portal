@@ -1,0 +1,10 @@
+
+{% extends 'layout.html' %}{% block content %}
+<h1>{{ title }}</h1>
+<form method='post' class='col-md-8'>
+  <div class='mb-3'><label class='form-label'>Название</label><input name='name' class='form-control' value='{{ t and t["name"] or "" }}' required></div>
+  <div class='mb-3'><label class='form-label'>Описание</label><textarea name='description' class='form-control' rows='3'>{{ t and t['description'] or '' }}</textarea></div>
+  <div class='mb-3'><label class='form-label'>Цена (₽)</label><input name='price' type='number' step='0.01' class='form-control' value='{{ t and t["price"] or "" }}' required></div>
+  <button class='btn btn-vitte'>Сохранить</button> <a class='btn btn-secondary' href='{{ url_for('admin_tariffs') }}'>Отмена</a>
+</form>
+{% endblock %}
