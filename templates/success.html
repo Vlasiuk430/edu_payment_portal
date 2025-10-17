@@ -1,0 +1,9 @@
+
+{% extends 'layout.html' %}{% block content %}
+<div class='alert alert-success'>
+  <h4>Платёж подтверждён</h4>
+  <p>Спасибо! Оплата по направлению <strong>{{ tariff_name }}</strong> завершена.</p>
+</div>
+{% if receipt_link %}<a class='btn btn-outline-primary' href='{{ receipt_link }}'>Скачать квитанцию (PDF)</a>{% endif %}
+<a class='btn btn-vitte ms-2' href='{{ url_for('dashboard') }}'>Личный кабинет</a>
+{% endblock %}

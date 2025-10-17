@@ -1,0 +1,5 @@
+
+{% extends 'layout.html' %}{% block content %}
+<div class="alert alert-warning"><h4>Оплата отменена</h4><p>Вы можете повторить попытку позже.</p></div>
+<a class="btn btn-secondary" href="{{ url_for('tuition') }}">К оплате</a>
+{% endblock %}
