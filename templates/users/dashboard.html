@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Личный кабинет студента — ЛК студента{% endblock %}
+{% block content %}
+<h2 class="mb-4">Личный кабинет студента</h2>
+
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100"><div class="card-body">
+      <h5 class="card-title">Профиль</h5>
+      <p class="mb-1"><strong>Имя:</strong> {{ (user.full_name if user else current_user()['username']) if user else current_user()['username'] }}</p>
+      <p class="mb-0"><strong>Email:</strong> {{ (user.email if user else current_user()['email']) if user else current_user()['email'] }}</p>
+    </div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100"><div class="card-body">
+      <h5 class="card-title">Документы</h5>
+      <p class="display-6">{{ documents_count or 0 }}</p>
+      <a href="{{ url_for('user_documents') }}" class="btn btn-outline-danger btn-sm">Открыть</a>
+    </div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100"><div class="card-body">
+      <h5 class="card-title">Платежи</h5>
+      <p class="display-6">{{ payments_count or 0 }}</p>
+      <a href="{{ url_for('user_payments') }}" class="btn btn-outline-danger btn-sm">История</a>
+    </div></div>
+  </div>
+</div>
+<div class="card shadow-sm mt-4"><div class="card-body">
+  <h5 class="card-title mb-3">Последние платежи</h5>
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead><tr><th>ID</th><th>Программа</th><th>Сумма</th><th>Дата</th></tr></thead>
+      <tbody>
+        {% for p in payments or [] %}
+          <tr><td>{{ p.id }}</td><td>{{ p.program or '-' }}</td><td>{{ '{:,.2f}'.format(p.amount).replace(',', ' ') }} ₽</td><td>{{ p.created_at }}</td></tr>
+        {% else %}
+          <tr><td colspan="4" class="text-muted">Платежей пока нет</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div></div>
+
+{% endblock %}

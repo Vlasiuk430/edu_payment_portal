@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Профиль — ЛК студента{% endblock %}
+{% block content %}
+<h2 class="mb-4">Профиль</h2>
+
+<form method="post" action="{{ url_for('profile') }}" class="card shadow-sm p-3">
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" value="{{ current_user()['email'] }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Новый пароль (необязательно)</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <button class="btn btn-danger">Сохранить</button>
+</form>
+
+{% endblock %}
