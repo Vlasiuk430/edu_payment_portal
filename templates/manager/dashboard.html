@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Панель менеджера — Панель менеджера{% endblock %}
+{% block content %}
+<h2 class="mb-4">Панель менеджера</h2>
+
+<div class="row g-3">
+  <div class="col-md-4"><div class="card shadow-sm h-100"><div class="card-body">
+    <h5 class="card-title">Студенты</h5>
+    <p class="display-6">{{ stats.students or 0 }}</p>
+    <a href="{{ url_for('manager_students') }}" class="btn btn-outline-secondary btn-sm">Открыть</a>
+  </div></div></div>
+  <div class="col-md-4"><div class="card shadow-sm h-100"><div class="card-body">
+    <h5 class="card-title">Платежи</h5>
+    <p class="display-6">{{ stats.payments or 0 }}</p>
+    <a href="{{ url_for('manager_payments') }}" class="btn btn-outline-secondary btn-sm">Смотреть</a>
+  </div></div></div>
+  <div class="col-md-4"><div class="card shadow-sm h-100"><div class="card-body">
+    <h5 class="card-title">Сумма поступлений</h5>
+    <p class="display-6">{{ '{:,.2f}'.format(stats.total_amount or 0).replace(',', ' ') }} ₽</p>
+    <a href="{{ url_for('manager_reports') }}" class="btn btn-outline-secondary btn-sm">Отчёты</a>
+  </div></div></div>
+</div>
+
+{% endblock %}

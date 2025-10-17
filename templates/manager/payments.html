@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Платежи — Панель менеджера{% endblock %}
+{% block content %}
+<h2 class="mb-4">Платежи</h2>
+
+<form method="get" class="row g-2 mb-3">
+  <div class="col-auto"><input type="date" class="form-control" name="from" value="{{ request.args.get('from','') }}"></div>
+  <div class="col-auto"><input type="date" class="form-control" name="to" value="{{ request.args.get('to','') }}"></div>
+  <div class="col-auto">
+    <select class="form-select" name="program">
+      <option value="">Все программы</option>
+      {% for t in tariffs %}
+        <option value="{{ t.name }}" {% if request.args.get('program') == t.name %}selected{% endif %}>{{ t.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto"><button class="btn btn-secondary">Фильтр</button></div>
+</form>
+<div class="table-responsive card shadow-sm">
+<table class="table mb-0 align-middle">
+  <thead><tr><th>ID</th><th>Студент</th><th>Программа</th><th>Сумма</th><th>Дата</th></tr></thead>
+  <tbody>
+    {% for p in payments %}
+    <tr><td>{{ p.id }}</td><td>{{ p.username or '-' }}</td><td>{{ p.program }}</td><td>{{ '{:,.2f}'.format(p.amount).replace(',', ' ') }} ₽</td><td>{{ p.created_at }}</td></tr>
+    {% else %}
+      <tr><td colspan="5" class="text-muted">Записей нет</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

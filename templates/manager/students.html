@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Студенты — Панель менеджера{% endblock %}
+{% block content %}
+<h2 class="mb-4">Студенты</h2>
+
+<form method="get" class="row g-2 mb-3">
+  <div class="col-auto"><input class="form-control" name="q" value="{{ request.args.get('q','') }}" placeholder="Поиск по имени/email"></div>
+  <div class="col-auto"><button class="btn btn-secondary">Найти</button></div>
+</form>
+<div class="table-responsive card shadow-sm">
+<table class="table mb-0 align-middle">
+  <thead><tr><th>ID</th><th>Имя</th><th>Email</th><th>Роль</th></tr></thead>
+  <tbody>
+    {% for s in students %}
+    <tr><td>{{ s.id }}</td><td>{{ s.username }}</td><td>{{ s.email }}</td><td>{{ s.role_name }}</td></tr>
+    {% else %}
+      <tr><td colspan="4" class="text-muted">Студентов не найдено</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Отчёты и выгрузка — Панель менеджера{% endblock %}
+{% block content %}
+<h2 class="mb-4">Отчёты и выгрузка</h2>
+
+<div class="row g-3">
+  <div class="col-md-6"><div class="card shadow-sm h-100"><div class="card-body">
+    <h5 class="card-title">Экспорт платежей (CSV)</h5>
+    <p class="text-muted">Скачать все платежи для бухгалтерии.</p>
+    <a class="btn btn-secondary" href="{{ url_for('payments_export_csv') }}">Скачать CSV</a>
+  </div></div></div>
+  <div class="col-md-6"><div class="card shadow-sm h-100"><div class="card-body">
+    <h5 class="card-title">Отчёт по суммам</h5>
+    <p class="text-muted">Сумма и количество по программам.</p>
+    <a class="btn btn-secondary" href="{{ url_for('reports_summary') }}">Открыть отчёт</a>
+  </div></div></div>
+</div>
+
+{% endblock %}
