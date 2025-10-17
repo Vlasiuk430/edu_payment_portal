@@ -1,0 +1,30 @@
+
+services:
+  - type: web
+    name: edu-payment-portal-pro-plus
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: STRIPE_PUBLIC_KEY
+        value: pk_test_your_key_here
+      - key: STRIPE_SECRET_KEY
+        value: sk_test_your_key_here
+      - key: STRIPE_CURRENCY
+        value: rub
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: SMTP_HOST
+        value: smtp.mailtrap.io
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        value: no-reply@witte.example
+      - key: SMTP_TO_BILLING
+        value: billing@witte.example
